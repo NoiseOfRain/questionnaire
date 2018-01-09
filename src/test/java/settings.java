@@ -12,7 +12,7 @@ public class settings {
     @Test
     public void runTest() {
 
-        System.setProperty("webdriver.gecko.driver", "src/test/resurses/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "src/test/resurses/geckodriverForUbuntu");
         driver = new FirefoxDriver();
         driver.get("http://ya.ru");
 
