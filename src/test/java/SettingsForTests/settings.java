@@ -1,12 +1,14 @@
+package SettingsForTests;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class settings {
 
-    static public WebDriver driver;
+    static public  WebDriver driver;
     static private String wayToWebDriver;
 
     private void getOperationSystem() {
@@ -22,14 +24,21 @@ public class settings {
         }
     }
 
-    @Test
+    @BeforeClass
     public void runTest() {
-
         getOperationSystem();
 
         System.setProperty("webdriver.gecko.driver", wayToWebDriver);
         driver = new FirefoxDriver();
-        driver.get("http://ya.ru");
 
+        driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+    }
+
+
+    @AfterClass
+    public  void endTest() {
+        driver.quit();
     }
 }

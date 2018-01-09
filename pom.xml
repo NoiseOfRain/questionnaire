@@ -21,7 +21,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.8</version>
-            <scope>settings</scope>
+            <scope>Settings.settings</scope>
         </dependency>
 
         <dependency>
