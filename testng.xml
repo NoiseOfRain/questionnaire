@@ -2,7 +2,8 @@
 <suite name="test">
     <test name="test">
         <classes>
-            <class name="MainPage.openMainPage"/>
+            <class name="Pages.Login.loginPage"/>
+            <class name="Pages.Console.consolePage"/>
         </classes>
     </test>
 </suite>

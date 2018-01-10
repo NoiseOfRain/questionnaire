@@ -1,9 +1,9 @@
-package MainPage;
+package Pages.Login;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class pageObjects extends SettingsForTests.settings {
+public class pageObjectsLogin extends Logging.makeScreenshot {
 
     static String addressOfURL = "http://172.29.12.1:9003/Login";
 

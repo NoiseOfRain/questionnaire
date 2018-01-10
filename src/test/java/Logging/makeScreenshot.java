@@ -3,7 +3,10 @@ package Logging;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,11 +20,14 @@ public class makeScreenshot extends SettingsForTests.settings {
     @AfterMethod
     public static void getScreenshot() throws IOException, InterruptedException {
 
-        nameOfScreen = driver.getCurrentUrl().substring(24);
-        numberOfScreen++;
-
         //не сразу отрисовываются фото
         Thread.sleep(2000);
+
+        numberOfScreen++;
+
+        if (!nameOfScreen.equals(driver.getCurrentUrl().substring(24))) {
+            nameOfScreen = driver.getCurrentUrl().substring(24);
+        }
 
         TakesScreenshot scrShot = ((TakesScreenshot)driver);
         File scrFile = scrShot.getScreenshotAs(OutputType.FILE);

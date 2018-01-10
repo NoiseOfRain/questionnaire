@@ -40,7 +40,7 @@ public class settings {
         return dateFormat.format(date);
     }
 
-    @BeforeClass
+    @BeforeTest
     public void setPropertyForDriver() {
         getOperationSystem();
 
@@ -53,7 +53,7 @@ public class settings {
     }
 
 
-    @AfterClass
+    @AfterTest
     public  void closeDriver() {
         driver.quit();
     }
