@@ -1,23 +1,44 @@
 package MainPage;
 
-import com.sun.scenario.Settings;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.Test;
+
+
+import java.io.File;
+
+import static Logging.makeScreenshot.getScreenshot;
 
 
 /**
  * Created by Noise on 09.01.2018.
  */
-public class openMainPage extends SettingsForTests.settings {
+public class openMainPage extends SettingsForTests.settings{
 
     @Test
-    public void open() {
+    public void open() throws Exception {
 
-        driver.get("http://ya.ru");
+        driver.get("http://172.29.12.1:9003/Login");
 
-        driver.findElement(By.className("button__text"));
+        driver.findElement(By.xpath("//img[contains(@src,'logo_forsix_11.png')]")).isDisplayed();
 
-        System.out.println();
+
+        getScreenshot("/home/noise/", "123.png");
+
+
+
+
+        driver.findElement(By.id("loginButton")).click();
+
+
+        driver.findElement(By.id("labelConsole")).isDisplayed();
+
+        driver.findElement(By.xpath("//img[contains(@src,'https://s5o.ru/storage/simple/ru/edt/33/71/89/08/rue720debfb87.jpg')]")).isDisplayed();
+
+        getScreenshot("/home/noise/", "456.png");
 
         //(new Actions(driver)).dragAndDrop(element, target).perform();
 
