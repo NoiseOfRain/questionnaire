@@ -26,7 +26,7 @@ public class openMainPage extends SettingsForTests.settings{
         driver.findElement(By.xpath("//img[contains(@src,'logo_forsix_11.png')]")).isDisplayed();
 
 
-        getScreenshot("/home/noise/", "123.png");
+        getScreenshot("123.png");
 
 
 
@@ -38,7 +38,7 @@ public class openMainPage extends SettingsForTests.settings{
 
         driver.findElement(By.xpath("//img[contains(@src,'https://s5o.ru/storage/simple/ru/edt/33/71/89/08/rue720debfb87.jpg')]")).isDisplayed();
 
-        getScreenshot("/home/noise/", "456.png");
+        getScreenshot("1231.png");
 
         //(new Actions(driver)).dragAndDrop(element, target).perform();
 
