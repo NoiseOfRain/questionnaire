@@ -17,7 +17,7 @@ public class makeScreenshot extends SettingsForTests.settings {
     @AfterMethod
     public static void getScreenshot() throws IOException, InterruptedException {
 
-        nameOfScreen = driver.getCurrentUrl();
+        nameOfScreen = driver.getCurrentUrl().substring(24);
         numberOfScreen++;
 
         //не сразу отрисовываются фото

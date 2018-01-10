@@ -1,28 +1,22 @@
 package MainPage;
 
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
-import java.util.Stack;
-
-import static org.apache.regexp.RETest.test;
-
 
 /**
  * Created by Noise on 09.01.2018.
  */
-public class openMainPage extends Logging.makeScreenshot {
+public class openMainPage extends pageObjects {
 
     @Test
     public void first() {
+        driver.get(addressOfURL);
 
-        driver.get("http://172.29.12.1:9003/Login");
-        driver.findElement(By.xpath("//img[contains(@src,'logo_forsix_11.png')]")).isDisplayed();
-
-
+        Assert.assertTrue(buttonLogin().isDisplayed());
+        Assert.assertTrue(imageForsix().isDisplayed());
+        Assert.assertTrue(inputLogin().isDisplayed());
+        Assert.assertTrue(inputPass().isDisplayed());
     }
 
 

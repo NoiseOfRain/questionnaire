@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class settings {
 
     static public  WebDriver driver;
-    static private String wayToWebDriver;
+    private String wayToWebDriver;
 
     static public  String filePath;
     static public  String nowDatetime = getNowDatetime();
