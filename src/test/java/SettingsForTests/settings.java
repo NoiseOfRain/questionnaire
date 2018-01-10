@@ -9,12 +9,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+
+//(new Actions(driver)).dragAndDrop(element, target).perform();
 public class settings {
 
     static public  WebDriver driver;
+    static private String wayToWebDriver;
+
     static public  String filePath;
     static public  String nowDatetime = getNowDatetime();
-    static private String wayToWebDriver;
 
     private void getOperationSystem() {
         String os = System.getProperty("os.name").toLowerCase();
