@@ -1,9 +1,10 @@
 package Pages;
 
+import Logging.makeTestLogs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class mainMenu extends Logging.makeScreenshot {
+public class mainMenu extends makeTestLogs {
 
     public static WebElement buttonConsole() {
         return driver.findElement(By.id("labelConsole"));

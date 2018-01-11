@@ -17,7 +17,7 @@ public class consolePage extends pageObjectsConsole {
     public void checkConsolePage() throws AssertionError {
 
         softAssert.assertTrue(addressOfURL.equals(driver.getCurrentUrl()), "URL is incorrect");
-        softAssert.assertTrue(pageConsole().isDisplayed(), "Console isn't Displayed");
+        softAssert.assertTrue(pageConsole().isDisplayed(), "pageConsole isn't Displayed");
         softAssert.assertTrue(captionPollsDraft().isDisplayed(), "captionPollsDraft isn't Displayed");
         softAssert.assertTrue(departmentPollsDraft().isDisplayed(), "departmentPollsDraft isn't Displayed");
         softAssert.assertTrue(captionPollsActual().isDisplayed(), "captionPollsActual isn't Displayed");

@@ -1,9 +1,10 @@
 package Pages.PollList;
 
+import Logging.makeTestLogs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class pageObjectsPollList extends Logging.makeScreenshot {
+public class pageObjectsPollList extends makeTestLogs {
 
     static String addressOfURL = "http://172.29.12.1:9003/PollList";
 

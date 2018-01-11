@@ -16,16 +16,16 @@ public class pollListPage extends pageObjectsPollList {
     public void checkPollListPage() throws AssertionError {
 
         softAssert.assertTrue(addressOfURL.equals(driver.getCurrentUrl()), "URL is incorrect");
-        softAssert.assertTrue(buttonAddTemplatePoll().isDisplayed(), "Console isn't Displayed");
-        softAssert.assertTrue(departmentItemPollDraft().isDisplayed(), "captionPollsDraft isn't Displayed");
-        softAssert.assertTrue(departmentItemPollActual().isDisplayed(), "departmentPollsDraft isn't Displayed");
+        softAssert.assertTrue(buttonAddTemplatePoll().isDisplayed(), "buttonAddTemplatePoll isn't Displayed");
+        softAssert.assertTrue(departmentItemPollDraft().isDisplayed(), "departmentItemPollDraft isn't Displayed");
+        softAssert.assertTrue(departmentItemPollActual().isDisplayed(), "departmentItemPollActual isn't Displayed");
         softAssert.assertAll();
 
     }
 
-//    @Test
-//            (priority = 2)
-//    public void goToConsole() {
-//        buttonLogin().click();
-//    }
+    @Test
+            (priority = 2)
+    public void addPollList() {
+        buttonAddTemplatePoll().click();
+    }
 }

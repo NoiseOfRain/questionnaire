@@ -3,7 +3,9 @@
     <test name="test">
         <classes>
             <class name="Pages.Login.loginPage"/>
-            <class name="Pages.Console.consolePage"/>
+            <!--<class name="Pages.Console.consolePage"/>
+            <class name="Pages.PollList.pollListPage"/>
+            <class name="Pages.PollList.EditPollList.editPollPage"/>-->
         </classes>
     </test>
 </suite>

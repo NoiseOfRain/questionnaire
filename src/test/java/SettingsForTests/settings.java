@@ -2,6 +2,7 @@ package SettingsForTests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 
 import java.text.DateFormat;
@@ -17,6 +18,7 @@ public class settings {
     private String wayToWebDriver;
 
     static public  String filePath;
+    static public  String filePathFull;
     static public  String nowDatetime = getNowDatetime();
 
     private void getOperationSystem() {
@@ -24,6 +26,7 @@ public class settings {
         if (os.contains("win")){
             wayToWebDriver = "src\\test\\resources\\geckodriverForWindows.exe";
             filePath = "src\\logs\\" + nowDatetime + "\\";
+            filePathFull = "src\\logs\\";
         }
         else if (os.contains("osx")){
             wayToWebDriver = null;
@@ -31,6 +34,7 @@ public class settings {
         else if (os.contains("nix") || os.contains("aix") || os.contains("nux")){
             wayToWebDriver = "src/test/resources/geckodriverForUbuntu";
             filePath = "src/logs/"  + nowDatetime + "/";
+            filePathFull = "src/logs/";
         }
     }
 
@@ -55,6 +59,8 @@ public class settings {
 
     @AfterTest
     public  void closeDriver() {
+
+
         driver.quit();
     }
 
