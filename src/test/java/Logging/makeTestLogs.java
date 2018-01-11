@@ -39,17 +39,46 @@ public class makeTestLogs extends SettingsForTests.settings {
 
     @Test
     static void removeScrennshot() {
-        File file = new File(filePathFull);
+         File file = new File(filePathFull);
 
 
         System.out.println(file.listFiles().length);
 
-        for (File childrenFiles : file.listFiles()) {
 
-            System.out.println(childrenFiles);
+        while (file.listFiles().length > 5) {
+            for (File children : file.listFiles()[0].listFiles()) {
+                children.delete();
+            }
+            file.listFiles()[0].delete();
+        }
+
+
+        /*
+        String[] fileName = new String[file.listFiles().length];
+        int i = 0;
+        for (File childrenFiles : file.listFiles()) {
+            fileName[i] = childrenFiles.getName();
+            i++;
 //            for (File children : childrenFiles.listFiles()) {
 //                System.out.println(children.getName());
 //            }
+        }
+
+        i=0;
+        DateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy_hh_mm_ss");
+        Date[] date = new Date[fileName.length];
+
+        for (String x : fileName) {
+            try {
+                date[i] = simpleDateFormat.parse(x);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            i++;
+        }
+
+        for (Date x : date) {
+            System.out.println(x);
         }
 
 
