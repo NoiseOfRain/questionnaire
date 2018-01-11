@@ -1,29 +1,48 @@
 package Pages.Console;
 
-import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import static Pages.mainMenu.*;
 
 /**
  * Created by Noise on 09.01.2018.
  */
 public class consolePage extends pageObjectsConsole {
 
+    SoftAssert softAssert = new SoftAssert();
+
     @Test
-    public void console() {
+            (priority = 1)
+    public void checkConsolePage() throws AssertionError {
 
-        buttonLogin().click();
-
-        driver.findElement(By.id("labelConsole")).isDisplayed();
-        driver.findElement(By.xpath("//img[contains(@src,'https://s5o.ru/storage/simple/ru/edt/33/71/89/08/rue720debfb87.jpg')]")).isDisplayed();
-
-
+        softAssert.assertTrue(addressOfURL.equals(driver.getCurrentUrl()), "URL is incorrect");
+        softAssert.assertTrue(pageConsole().isDisplayed(), "Console isn't Displayed");
+        softAssert.assertTrue(captionPollsDraft().isDisplayed(), "captionPollsDraft isn't Displayed");
+        softAssert.assertTrue(departmentPollsDraft().isDisplayed(), "departmentPollsDraft isn't Displayed");
+        softAssert.assertTrue(captionPollsActual().isDisplayed(), "captionPollsActual isn't Displayed");
+        softAssert.assertTrue(departmentPollsActual().isDisplayed(), "departmentPollsActual isn't Displayed");
+        softAssert.assertAll();
 
     }
 
+    @Test
+            (priority = 2)
+    public void checkMainMenu() {
 
-    public String getMethodName() {
-        StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-        return stackTrace[1].getMethodName();
+        softAssert.assertTrue(buttonConsole().isDisplayed(), "page buttonConsole isn't Displayed");
+        softAssert.assertTrue(buttonReport().isDisplayed(), "page buttonReport isn't Displayed");
+        softAssert.assertTrue(buttonSettings().isDisplayed(), "page buttonSettings isn't Displayed");
+        softAssert.assertTrue(buttonSearch().isDisplayed(), "page buttonSearch isn't Displayed");
+        softAssert.assertTrue(inputSearch().isDisplayed(), "page inputSearch isn't Displayed");
+        softAssert.assertAll();
+
     }
+
+    @Test
+            (priority = 3)
+    public void goToPoll() {
+        buttonPoll().click();
+    }
+
 }

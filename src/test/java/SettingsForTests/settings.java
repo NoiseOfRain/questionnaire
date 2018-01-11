@@ -57,4 +57,11 @@ public class settings {
     public  void closeDriver() {
         driver.quit();
     }
+
+
+
+//    public String getMethodName() {
+//        StackTraceElement[] stackTrace = new Throwable().getStackTrace();
+//        return stackTrace[1].getMethodName();
+//    }
 }

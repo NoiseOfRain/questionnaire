@@ -5,21 +5,29 @@ import org.openqa.selenium.WebElement;
 
 public class pageObjectsConsole extends Logging.makeScreenshot {
 
-    static String addressOfURL = "http://172.29.12.1:9003/Login";
+    static String addressOfURL = "http://172.29.12.1:9003/Console";
 
-    public static WebElement buttonLogin() {
-        return driver.findElement(By.id("loginButton"));
+    static WebElement pageConsole() {
+        return driver.findElement(By.id("Console"));
     }
 
-    public static WebElement imageForsix() {
-        return driver.findElement(By.xpath("//img[contains(@src,'https://static.tildacdn.com/tild3462-6263-4236-b935-346134663931/logo_forsix_11.png')]"));
+    static WebElement captionPollsDraft() {
+        return driver.findElement(By.id("console_headSectionPollDraft"));
     }
 
-    public static WebElement inputLogin() {
-        return driver.findElement(By.id("username"));
+    static WebElement departmentPollsDraft() {
+        return driver.findElement(By.id("console_headSectionPollActual"));
     }
 
-    public static WebElement inputPass() {
-        return driver.findElement(By.id("password"));
+    static WebElement captionPollsActual() {
+        return driver.findElement(By.id("console_headSectionPollActual"));
+    }
+
+    static WebElement departmentPollsActual() {
+        return driver.findElement(By.id("console_headSectionPollActual"));
+    }
+
+    static WebElement departmentPollsReport() {
+        return driver.findElement(By.id("console_itemReport"));
     }
 }
