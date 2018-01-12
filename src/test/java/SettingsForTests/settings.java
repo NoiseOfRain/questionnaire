@@ -14,12 +14,14 @@ import java.util.concurrent.TimeUnit;
 //(new Actions(driver)).dragAndDrop(element, target).perform();
 public class settings {
 
-    static public  WebDriver driver;
+    static public WebDriver driver;
     private String wayToWebDriver;
 
-    static public  String filePath;
-    static public  String filePathFull;
-    static public  String nowDatetime = getNowDatetime();
+    static public String filePath;
+    static public String filePathFull;
+    static public String formatToSaveDate = "dd.MM.yyyy_HH-mm-ss";
+    static public String nowDatetime = getNowDatetime();
+
 
     private void getOperationSystem() {
         String os = System.getProperty("os.name").toLowerCase();
@@ -38,8 +40,8 @@ public class settings {
         }
     }
 
-    public static String getNowDatetime() {
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy_HH-mm-ss");
+    private static String getNowDatetime() {
+        DateFormat dateFormat = new SimpleDateFormat(formatToSaveDate);
         Date date = new Date();
         return dateFormat.format(date);
     }

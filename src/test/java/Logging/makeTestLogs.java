@@ -1,16 +1,16 @@
 package Logging;
 
-import gherkin.lexer.Fi;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 public class makeTestLogs extends SettingsForTests.settings {
@@ -39,53 +39,35 @@ public class makeTestLogs extends SettingsForTests.settings {
 
     @Test
     static void removeScrennshot() {
-         File file = new File(filePathFull);
+        File file = new File(filePathFull);
 
-
-        System.out.println(file.listFiles().length);
-
-
-        /*while (file.listFiles().length > 5) {
-            for (File children : file.listFiles()[0].listFiles()) {
-                children.delete();
-            }
-            file.listFiles()[0].delete();
-        }*/
-
-
-        for (File x : file.listFiles()) {
-            System.out.println(x.getName());
-        }
-
-
+        List<File> files = sortFiles(file);
         /*
-        String[] fileName = new String[file.listFiles().length];
-        int i = 0;
-        for (File childrenFiles : file.listFiles()) {
-            fileName[i] = childrenFiles.getName();
-            i++;
-//            for (File children : childrenFiles.listFiles()) {
-//                System.out.println(children.getName());
-//            }
-        }
+        while (file.listFiles().length > 5) {
+            sortFiles(file);
+        */
 
-        i=0;
-        DateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy_hh_mm_ss");
-        Date[] date = new Date[fileName.length];
-
-        for (String x : fileName) {
-            try {
-                date[i] = simpleDateFormat.parse(x);
-            } catch (ParseException e) {
-                e.printStackTrace();
+        for (File children : files) {
+            for (File x : children.listFiles()) {
+                System.out.println(x);
             }
-            i++;
+        }
+    }
+
+
+    private static List<File> sortFiles(File file) {
+        List<File> files = new ArrayList<>();
+
+        for (File f : file.listFiles()) {
+            files.add(f);
         }
 
-        for (Date x : date) {
-            System.out.println(x);
-        }
-*/
+        Collections.sort(files, new Comparator<File>() {
+            public int compare(File f1, File f2) {
+                return Long.compare(f1.lastModified(), f2.lastModified());
+            }
+        });
 
+        return files;
     }
 }
