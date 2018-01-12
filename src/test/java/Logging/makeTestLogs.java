@@ -45,11 +45,16 @@ public class makeTestLogs extends SettingsForTests.settings {
         System.out.println(file.listFiles().length);
 
 
-        while (file.listFiles().length > 5) {
+        /*while (file.listFiles().length > 5) {
             for (File children : file.listFiles()[0].listFiles()) {
                 children.delete();
             }
             file.listFiles()[0].delete();
+        }*/
+
+
+        for (File x : file.listFiles()) {
+            System.out.println(x.getName());
         }
 
 
@@ -80,7 +85,7 @@ public class makeTestLogs extends SettingsForTests.settings {
         for (Date x : date) {
             System.out.println(x);
         }
-
+*/
 
     }
 }

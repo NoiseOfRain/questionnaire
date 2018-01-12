@@ -39,7 +39,7 @@ public class settings {
     }
 
     public static String getNowDatetime() {
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy_HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy_HH-mm-ss");
         Date date = new Date();
         return dateFormat.format(date);
     }
