@@ -20,14 +20,15 @@ public class makeTestLogs extends SettingsForTests.settings {
     @AfterMethod
     public static void getScreenshot() throws IOException, InterruptedException {
 
+        removeScrennshot();
         //не сразу отрисовываются фото
         Thread.sleep(1000);
 
         numberOfScreen++;
 
-        //if (!nameOfScreen.equals(driver.getCurrentUrl().substring(24))) {
-            nameOfScreen = driver.getCurrentUrl().substring(24);
-        //}
+        if (!nameOfScreen.equals(driver.getCurrentUrl().substring(24))) {
+        nameOfScreen = driver.getCurrentUrl().substring(24);
+        }
 
         TakesScreenshot scrShot = ((TakesScreenshot)driver);
         File scrFile = scrShot.getScreenshotAs(OutputType.FILE);
@@ -36,7 +37,6 @@ public class makeTestLogs extends SettingsForTests.settings {
     }
 
 
-    @Test
     static void removeScrennshot() {
         File file = new File(filePathFull);
 
@@ -46,6 +46,8 @@ public class makeTestLogs extends SettingsForTests.settings {
             for (File children : files.get(0).listFiles()) {
                 children.delete();
             }
+            files.get(0).delete();
+            files.remove(0);
         }
     }
 
